@@ -65,7 +65,7 @@ if __name__ == "__main__":
             status = jenkins.get_job_status("testing-enterprise-pr")
             status = jenkins.get_job_status("bootstrap-community-nightly-master")
             if "blue" in status:
-                set_led("tri", "green")
+                set_led("tri", "blue")
             elif "red" in status:
                 set_led("tri", "red")
             else:
