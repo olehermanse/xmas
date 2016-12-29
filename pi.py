@@ -48,6 +48,7 @@ if __name__ == "__main__":
     jenkins = Jenkins(input_file = "~/new_jobs.json")
     while True:
         sleep(1)
-        if os.path.exists("~/ready"):
+        print("HELLO")
+        if os.path.exists(os.path.realpath("~/ready")):
             print("Getting data")
             os.remove("~/ready")
