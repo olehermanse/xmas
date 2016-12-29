@@ -45,10 +45,9 @@ def get_led(name):
     return leds[name]
 
 if __name__ == "__main__":
-    jenkins = Jenkins(input_file = "~/new_jobs.json")
+    jenkins = Jenkins(input_file = "/home/olehermanse/new_jobs.json")
     while True:
         sleep(1)
-        print("HELLO")
-        if os.path.exists(os.path.realpath("~/ready")):
+        if os.path.exists("/home/olehermanse/ready"):
             print("Getting data")
-            os.remove("~/ready")
+            os.remove("/home/olehermanse/ready")
