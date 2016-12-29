@@ -14,7 +14,7 @@ TRI_BLUE = 24
 TRI_BURNT = 18
 TRI_RED = 25
 
-for led, colors in pins.items():
+for led, colors in leds.items():
     for color, pin in colors.items():
         GPIO.setup(pin, GPIO.OUT)
 
