@@ -46,6 +46,16 @@ def get_pins(led):
 def get_led(name):
     return leds[name]
 
+def blink(t):
+    red_led(1)
+    sleep(t)
+    red_led(0)
+    sleep(t)
+
+def blink_loop(n = 8):
+    for i in range(n):
+        blink(0.1)
+
 if __name__ == "__main__":
     jenkins = Jenkins(input_file = "/home/olehermanse/new_jobs.json", verbose = True)
     while True:
@@ -54,14 +64,14 @@ if __name__ == "__main__":
             changes = jenkins.update()
             status = jenkins.get_job_status("testing-enterprise-pr")
             if "aborted" in status:
-                set_led("tri", "blue")
+                set_led("tri", "green")
             elif "blue" in status:
                 set_led("tri", "green")
             elif "red" in status:
                 set_led("tri", "red")
             else:
                 set_led("tri", "off")
-            print(status)
             os.remove("/home/olehermanse/ready")
             if changes:
                 jenkins.print_running_jobs()
+                blink_loop()
