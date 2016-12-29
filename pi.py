@@ -63,9 +63,7 @@ if __name__ == "__main__":
         if os.path.exists("/home/olehermanse/ready"):
             changes = jenkins.update()
             status = jenkins.get_job_status("testing-enterprise-pr")
-            if "aborted" in status:
-                set_led("tri", "green")
-            elif "blue" in status:
+            if "blue" in status:
                 set_led("tri", "green")
             elif "red" in status:
                 set_led("tri", "red")
