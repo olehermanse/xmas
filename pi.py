@@ -7,11 +7,11 @@ from jenkins_status.Jenkins import Jenkins
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
-tri = {"red":25, "green":18, "blue":24}
+tri = {"red":25, "green":24, "blue":18}
 leds = {"event":{"red":23}, "tri":tri}
 RED = 23
-TRI_BLUE = 24
-TRI_BURNT = 18
+TRI_BLUE = 18
+TRI_GREEN = 24
 TRI_RED = 25
 
 for led, colors in leds.items():
