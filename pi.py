@@ -51,6 +51,6 @@ if __name__ == "__main__":
         if os.path.exists("/home/olehermanse/ready"):
             changes = jenkins.update()
             os.remove("/home/olehermanse/ready")
-
             if changes:
+                print(str(changes))
                 jenkins.print_running_jobs()
