@@ -50,7 +50,8 @@ if __name__ == "__main__":
         sleep(1)
         if os.path.exists("/home/olehermanse/ready"):
             changes = jenkins.update()
+            status = jenkins.get_job_status("testing-enterprise-pr")
+            print(status)
             os.remove("/home/olehermanse/ready")
             if changes:
-                print(str(changes))
                 jenkins.print_running_jobs()
