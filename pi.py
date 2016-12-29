@@ -34,6 +34,8 @@ def set_led(name, color):
         tri_led(led, 0,1,0)
     elif color == "blue":
         tri_led(led, 0,0,1)
+    elif color == "off":
+        tri_led(led, 0,0,0)
     else:
         raise ValueError
 
@@ -51,6 +53,14 @@ if __name__ == "__main__":
         if os.path.exists("/home/olehermanse/ready"):
             changes = jenkins.update()
             status = jenkins.get_job_status("testing-enterprise-pr")
+            if "aborted" in status:
+                set_led("tri", "blue")
+            elif "blue" in status:
+                set_led("tri", "green")
+            elif "red" in status:
+                set_led("tri", "red")
+            else:
+                set_led("tri", "off")
             print(status)
             os.remove("/home/olehermanse/ready")
             if changes:
